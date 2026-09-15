@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Biodata System</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 30px;
+            background: lightblue;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        /* FORM */
+
+        .form-box {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+
+            box-shadow:
+                0 2px 10px rgba(0, 0, 0, 0.1);
+
+            margin-bottom: 30px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .form-group {
+            flex: 1;
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+
+            border: 1px solid #ccc;
+            border-radius: 5px;
+
+            font-size: 14px;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #333;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+
+            border: none;
+            border-radius: 5px;
+
+            background: #222;
+            color: white;
+
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #444;
+        }
+
+        /* LIST */
+
+        .list-box {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+
+            box-shadow:
+                0 2px 10px rgba(0, 0, 0, 0.1);
+
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background: #222;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f7f7f7;
+        }
+
+        /* DELETE BUTTON */
+
+        .delete {
+            display: inline-block;
+
+            padding: 6px 10px;
+
+            background: #d9534f;
+            color: white;
+
+            text-decoration: none;
+            border-radius: 4px;
+
+            font-size: 13px;
+        }
+
+        .delete:hover {
+            background: #c9302c;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            body {
+                padding: 15px;
+            }
+
+            .form-row {
+                display: block;
+            }
+
+            .form-group {
+                margin-bottom: 15px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- ===================== -->
+    <!-- BIODATA FORM -->
+    <!-- ===================== -->
+
+    <div class="form-box">
+
+        <h1>BIODATA FORM</h1>
+
+
+        <form action="/add" method="POST">
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label>First Name</label>
+
+                    <input
+                        type="text"
+                        name="firstname"
+                        placeholder="Enter first name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Last Name</label>
+
+                    <input
+                        type="text"
+                        name="lastname"
+                        placeholder="Enter last name"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label>Age</label>
+
+                    <input
+                        type="number"
+                        name="age"
+                        placeholder="Enter age"
+                        min="1"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Gender</label>
+
+                    <select name="gender" required>
+
+                        <option value="">
+                            Select Gender
+                        </option>
+
+                        <option value="Male">
+                            Male
+                        </option>
+
+                        <option value="Female">
+                            Female
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Address</label>
+
+                <input
+                    type="text"
+                    name="address"
+                    placeholder="Enter address"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label>Email</label>
+
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Enter email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Phone</label>
+
+                    <input
+                        type="text"
+                        name="phone"
+                        placeholder="Enter phone number"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <button type="submit">
+                ADD BIODATA
+            </button>
+
+
+        </form>
+
+    </div>
+
+
+    <!-- ===================== -->
+    <!-- BIODATA LIST -->
+    <!-- ===================== -->
+
+    <div class="list-box">
+
+        <h2>BIODATA LIST</h2>
+
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+
+                    <th>First Name</th>
+
+                    <th>Last Name</th>
+
+                    <th>Age</th>
+
+                    <th>Gender</th>
+
+                    <th>Address</th>
+
+                    <th>Email</th>
+
+                    <th>Phone</th>
+
+                    <th>Action</th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                <% if (biodata.length === 0) { %>
+
+                    <tr>
+
+                        <td colspan="9"
+                            style="text-align:center;">
+
+                            No biodata found.
+
+                        </td>
+
+                    </tr>
+
+                <% } %>
+
+
+                <% biodata.forEach(person => { %>
+
+                    <tr>
+
+                        <td>
+                            <%= person.id %>
+                        </td>
+
+                        <td>
+                            <%= person.firstname %>
+                        </td>
+
+                        <td>
+                            <%= person.lastname %>
+                        </td>
+
+                        <td>
+                            <%= person.age %>
+                        </td>
+
+                        <td>
+                            <%= person.gender %>
+                        </td>
+
+                        <td>
+                            <%= person.address %>
+                        </td>
+
+                        <td>
+                            <%= person.email %>
+                        </td>
+
+                        <td>
+                            <%= person.phone %>
+                        </td>
+
+                        <td>
+
+                            <a
+                                class="delete"
+                                href="/delete/<%= person.id %>"
+
+                                onclick="return confirm('Are you sure you want to delete this biodata?')"
+                            >
+                                Delete
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                <% }) %>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+</div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Biodata List</title>
+</head>
+
+<body>
+
+    <h1>BIODATA LIST</h1>
+
+    <a href="/">
+        Add New Biodata
+    </a>
+
+    <br><br>
+
+    <table border="1" cellpadding="8">
+
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Action</th>
+        </tr>
+
+        <% biodata.forEach(person => { %>
+
+        <tr>
+
+            <td>
+                <%= person.id %>
+            </td>
+
+            <td>
+                <%= person.firstname %>
+            </td>
+
+            <td>
+                <%= person.lastname %>
+            </td>
+
+            <td>
+                <%= person.age %>
+            </td>
+
+            <td>
+                <%= person.gender %>
+            </td>
+
+            <td>
+                <%= person.address %>
+            </td>
+
+            <td>
+                <%= person.email %>
+            </td>
+
+            <td>
+                <%= person.phone %>
+            </td>
+
+            <td>
+                <a href="/delete/<%= person.id %>">
+                    Delete
+                </a>
+            </td>
+
+        </tr>
+
+        <% }) %>
+
+    </table>
+
+</body>
+</html>
